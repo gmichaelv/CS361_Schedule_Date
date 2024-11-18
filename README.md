@@ -198,13 +198,13 @@ The following program has two input methods to schedule a forward looking review
 
 
 ## UML Sequence Diagram
-
+```plaintext
 +--------------------+              +--------------------+            +-------------------------+
-|    FlaskApp        |              |      Server        |            |   ReviewSchedule         |
+|    FlaskApp        |              |      Server        |            |   ReviewSchedule        |
 +--------------------+              +--------------------+            +-------------------------+
-| - app: Flask       |<>----------->| - HOST: str        |            | - id: int                |
-| - HOST: str        |              | - PORT: int        |            | - review_id: str         |
-| - PORT: int        |              +--------------------+            | - review_date: datetime  |
+| - app: Flask       |<>----------->| - HOST: str        |            | - id: int               |
+| - HOST: str        |              | - PORT: int        |            | - review_id: str        |
+| - PORT: int        |              +--------------------+            | - review_date: datetime |
 +--------------------+              | + get_review_date()|            +-------------------------+
 | + send_request()   |              | + check_for_conflict()|         |                         |
 | + index()          |              | + handle_client_connection() |  |                         |
@@ -220,3 +220,4 @@ The following program has two input methods to schedule a forward looking review
 | - form data (review_id) |      |  (SQLAlchemy Engine)   |      | (SQLAlchemy Session)   |
 | - increment (optional)  |      +------------------------+      +------------------------+
 +-------------------------+
+```
