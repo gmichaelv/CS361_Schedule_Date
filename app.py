@@ -46,9 +46,13 @@ def schedule():
     """Handle the form submission and send the request to the server."""
     review_id = request.form['review_id']
     increment = request.form.get('increment', 60)  # Default to 60 days if not provided
-    
+    app.logger.info(f"increment value: {increment}")
+
     try:
-        increment = int(increment)
+        if increment == '':
+            increment = 60
+        else:
+            increment = int(increment)
     except ValueError:
         return "Invalid increment value. Please enter an integer."
 
